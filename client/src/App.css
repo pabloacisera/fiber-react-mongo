@@ -1,0 +1,39 @@
+body {
+  background-color: #2c2c2c; /* Fondo mate (gris oscuro) */
+  color: #ffffff; /* Letras blancas */
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+h1 {
+  font-size: 2em;
+  text-align: center;
+}
+
+button {
+  padding: 10px 20px; /* Ajusta el padding del botón según tu preferencia */
+  background-color: #444; /* Fondo del botón */
+  border: none;
+  color: #fff; /* Color del texto del botón */
+  border-radius: 5px; /* Bordes redondeados del botón */
+  cursor: pointer; /* Cursor de mano al pasar por encima del botón */
+  font-size: 1em; /* Tamaño de la fuente del botón */
+  transition: background-color 0.3s; /* Transición suave para el cambio de color */
+}
+
+button:hover {
+  background-color: #666; /* Color del botón al pasar el mouse sobre él */
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
