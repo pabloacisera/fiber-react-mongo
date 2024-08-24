@@ -11,27 +11,29 @@ import (
 func main() {
 	app := fiber.New()
 
-	//variables de entorno
+	// Variables de entorno
 	port := os.Getenv("PORT")
 	if port == "" {
 		port = "3000"
 	}
-	//middleware
 
+	// Middleware
 	app.Use(cors.New(cors.Config{
 		AllowOrigins: "*",
 		AllowHeaders: "Origin, Content-Type, Accept",
 	}))
-
 	app.Use(logger.New())
 
-	app.Static("", "./client/dist") //cada vez que realicemos un cambio en el frontend debe buildear de nuevo!
+	// Ruta para archivos estáticos
+	app.Static("/", "./client/dist")
 
-	app.Get("/works", func(c *fiber.Ctx) error {
-		return c.JSON(fiber.Map{ //es map es un struct
+	// Ruta API
+	app.Get("/api/works", func(c *fiber.Ctx) error {
+		return c.JSON(fiber.Map{
 			"data": "lista de tareas",
 		})
 	})
 
+	// Iniciar el servidor
 	app.Listen(":" + port)
 }
