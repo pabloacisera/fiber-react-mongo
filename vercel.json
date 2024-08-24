@@ -1,15 +1,11 @@
 {
   "version": 2,
   "builds": [
-    {
-      "src": "client/package.json",
-      "use": "@vercel/static-build",
-      "config": { "distDir": "client/dist" }
-    },
+    { "src": "client/package.json", "use": "@vercel/static-build", "config": { "distDir": "client/dist" } },
     { "src": "main.go", "use": "@vercel/go" }
   ],
   "routes": [
     { "src": "/api/(.*)", "dest": "/main.go" },
-    { "src": "/(.*)", "dest": "/client/$1" }
+    { "src": "/(.*)", "dest": "/client/dist/$1" }
   ]
 }
