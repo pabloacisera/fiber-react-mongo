@@ -25,7 +25,7 @@ func main() {
 	app.Use(logger.New())
 
 	// Ruta para archivos estáticos
-	//app.Static("/", "./client/dist")
+	app.Static("/", "../cliente/dist")
 
 	// Ruta API
 	app.Get("/api/works", func(c *fiber.Ctx) error {
