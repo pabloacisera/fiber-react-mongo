@@ -1,7 +1,7 @@
 package main
 
 import (
-	"fmt"
+	"os"
 
 	"github.com/gofiber/fiber/v2"
 	"github.com/gofiber/fiber/v2/middleware/cors"
@@ -11,6 +11,11 @@ import (
 func main() {
 	app := fiber.New()
 
+	//variables de entorno
+	port := os.Getenv("PORT")
+	if port == "" {
+		port = "3000"
+	}
 	//middleware
 
 	app.Use(cors.New(cors.Config{
@@ -28,6 +33,5 @@ func main() {
 		})
 	})
 
-	app.Listen(":3030")
-	fmt.Println(">>> >>> Servidor corriendo en puerto 3030 >>> >>>")
+	app.Listen(":" + port)
 }
